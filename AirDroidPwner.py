@@ -42,14 +42,14 @@ def checkurl(ips_array):
 def get_IPS(ips_array):
 
         try:
-           results = api.search('Airdroid')
+        	results = api.search('Airdroid')
         except shodan.APIError, error:
-            print 'Error: {0}'.format(error)
+        	print 'Error: {0}'.format(error)
 
         ips = []
 
         for result in results['matches']:
-             ips.append("{0}".format(result['ip_str']))
+        	ips.append("{0}".format(result['ip_str']))
 
         for ip in ips:
                 ips_array.append(ip)
