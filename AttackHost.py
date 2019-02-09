@@ -41,14 +41,13 @@ def parse_tn_request(tn_make_request):
 
 	for x in xrange(0,dict_len-1):
 		elements_length = len(response_json[x])
-		f = open("numbers.txt", "w+")
-		for i in xrange(0, elements_length-1):
 
+		for i in xrange(0, elements_length-1):
 			try:
-				print response_json[x][i]["data1"]
+				if "whatsapp" not in response_json[x][i]["data1"]:
+					print response_json[x][i]["data1"]
 			except:
 				pass
-		f.close()
 
 if __name__ == '__main__':
 
