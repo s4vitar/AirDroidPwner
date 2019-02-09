@@ -12,7 +12,7 @@ import shodan, requests, time, os, sys, signal, urllib
 from multiprocessing.dummy import Pool
 
 # Usa tu API KEY de Shodan
-SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def handler(signum, frame):
@@ -74,7 +74,7 @@ if __name__ == '__main__':
         print "[*] Número total de IPs obtenidas:", len(ips_array)
         time.sleep(2)
 
-        print "\n[*] Comprobando la disponibilidad web... [Este proceso puede tardar un poco... relájate y toma un café mientras :P]\n"
+        print "\n[*] Comprobando la disponibilidad web... [Este proceso puede tardar un poco, relájate y toma un café mientras :P]\n"
         time.sleep(2)
 
         available_urls = checkurl(ips_array)
