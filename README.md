@@ -57,3 +57,13 @@ Comenzamos ejecutando el script '**AirDroidPwner.py**', donde será necesario pr
 SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 api = shodan.Shodan(SHODAN_API_KEY)
 ```
+
+La ejecución se hace de la siguiente forma:
+
+```python
+python AirDroidPwner.py
+```
+
+Como se aprecia, muy complejo. Tras su ejecución, a través de la API de Shodan en una primera instancia se almacenarán en un array todas las IP's que el propio Shodan indexa sobre la búsqueda realizada, en este caso del servicio AirDroid (puerto 8888).
+
+Una vez encontradas, se lleva a cabo un proceso de validación para comprobar que realmente los Hosts encontrados cuenten con el servicio habilitado, atendiendo para ello al código de estado que devuelva la respuesta del lado del servidor tras realizar una simple petición.
