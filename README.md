@@ -39,7 +39,7 @@ Una vez aceptada la conexión, el responsable de la sesión puede gestionar el d
 
 A pesar de no compartir el PoC que se encarga de bypassear la validación del lado del cliente, he compartido algunos scripts de utilidad para la extracción de información privilegiada una vez aceptada la conexión.
 
-Así mismo, he compartido los scripts '**airdroid_dos.sh**' '**airdroid_fast_dos.sh**', que se encargan de realizar una acción de tipo '**Remote DoS Application & System Crash**', donde por un lado se consigue hacer que el servicio corrompa remotamente, así como congelar el dispositivo móvil llenando toda la memoria hasta que se quede inoperativo:
+Así mismo, he compartido los scripts '**airdroid_dos.sh**' y '**airdroid_fast_dos.sh**', que se encargan de realizar una acción de tipo '**Remote DoS Application & System Crash**', donde por un lado se consigue hacer que el servicio corrompa remotamente, así como congelar el dispositivo móvil llenando toda la memoria hasta que se quede inoperativo:
 
 <p align="center">
 <img src="images/outofmemory.jpg"
@@ -47,3 +47,13 @@ Así mismo, he compartido los scripts '**airdroid_dos.sh**' '**airdroid_fast_dos
      style="float: left; margin-right: 10px;" />
 </p>
 
+¿Cómo se utiliza el programa?
+======
+
+Comenzamos ejecutando el script '**AirDroidPwner.py**', donde será necesario proporcionar nuestra **KEY** de Shodan para encontrar un gran puñado de dispositivos con el servicio **AirDroid** corriendo:
+
+```python
+# Usa tu API KEY de Shodan
+SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+api = shodan.Shodan(SHODAN_API_KEY)
+```
