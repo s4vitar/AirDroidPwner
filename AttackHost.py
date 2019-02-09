@@ -42,6 +42,7 @@ def parse_tn_request(tn_make_request):
 	for x in xrange(0,dict_len-1):
 		elements_length = len(response_json[x])
 
+		# Si se os ocurre algo mejor hacedme un pull request en Github
 		for i in xrange(0, elements_length-1):
 			try:
 				if "whatsapp" not in response_json[x][i]["data1"]:
