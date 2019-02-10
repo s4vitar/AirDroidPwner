@@ -8,11 +8,10 @@
 # \                                                 \
 # --------------------------------------------------
 
-import shodan, requests, time, os, sys, signal, urllib
-from multiprocessing.dummy import Pool
+import shodan, requests, time, os, sys, signal, urllib, threading
 
 # Usa tu API KEY de Shodan
-SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def handler(signum, frame):
@@ -21,21 +20,20 @@ def handler(signum, frame):
         os.system('setterm -cursor on')
         sys.exit(0)
 
-def checkurl(ips_array):
+def checkurl(ip):
 
-        available_urls = []
+	available_urls = []
 
-        for hosts in ips_array:
+	url = "http://" + ip + ":8888/"
 
-                url = "http://" + hosts + ":8888/"
+	try:
+        	url_check_status = requests.get(url, verify=False, timeout=3)
 
-		try:
-                        url_check_status = requests.get(url, verify=False, timeout=3)
-
-                        if url_check_status.status_code == 200:
-                                available_urls.append(url)
-                except:
-                        pass
+                if url_check_status.status_code == 200:
+                	print "URL " + url + " activa!!\n"
+			available_urls.append(url)
+        except:
+                pass
 
         return available_urls
 
@@ -54,10 +52,6 @@ def get_IPS(ips_array):
         for ip in ips:
                 ips_array.append(ip)
 
-def format_available_urls(available_urls):
-        for host in available_urls:
-                print "URL Disponible: " + host + '\n'
-
 if __name__ == '__main__':
 
 	signal.signal(signal.SIGINT, handler)
@@ -74,14 +68,22 @@ if __name__ == '__main__':
         print "[*] Número total de IPs obtenidas:", len(ips_array)
         time.sleep(2)
 
-        print "\n[*] Comprobando la disponibilidad web... [Este proceso puede tardar un poco, relájate y toma un café mientras :P]\n"
+        print "\n[*] Comprobando la disponibilidad web...\n"
         time.sleep(2)
 
-        available_urls = checkurl(ips_array)
+        threads = []
 
-        print "\n[*] Listando direcciones IP con el servicio AirDroid corriendo...\n"
+	for host in ips_array:
+		t = threading.Thread(target=checkurl, args=(host,))
+		threads.append(t)
+
+	for x in threads:
+		x.start()
+
+	for x in threads:
+		x.join()
+
+        print "[*] Las direcciones IPs han sido almacenadas en un nuevo vector...\n"
         time.sleep(2)
-
-        format_available_urls(available_urls)
 
         os.system('setterm -cursor on')

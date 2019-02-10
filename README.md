@@ -39,7 +39,7 @@ Una vez aceptada la conexión, el responsable de la sesión puede gestionar el d
 
 A pesar de no compartir el PoC que se encarga de bypassear la validación del lado del cliente, he compartido algunos scripts de utilidad para la extracción de información privilegiada una vez aceptada la conexión.
 
-Así mismo, he compartido los scripts '**airdroid_dos.sh**' y '**airdroid_fast_dos.sh**', que se encargan de realizar una acción de tipo '**Remote DoS Application & System Crash**', donde por un lado se consigue hacer que el servicio corrompa remotamente, así como congelar el dispositivo móvil llenando toda la memoria hasta que se quede inoperativo:
+Así mismo, he compartido los scripts '**airdroid_dos.sh**' y '**airdroid_fast_dos.sh**', que se encargan de realizar una acción de tipo '**Remote DoS Application & System Crash**', donde por medio de estos se consigue hacer que el servicio corrompa remotamente, así como conseguir congelar el dispositivo móvil llenando toda la memoria hasta que se quede inoperativo:
 
 <p align="center">
 <img src="images/outofmemory.jpg"
@@ -78,9 +78,11 @@ def get_identifier(r_json):
         return identifier_session
 ```
 
-En caso de que el cliente no acepte la conexión, a través de un menú interactivo podremos llevar a cabo las siguientes operaciones:
+En caso de que el cliente no acepte la conexión, a través de un cómodo menú interactivo podremos llevar a cabo las siguientes operaciones:
 
 * Remote DoS Application Crash
 * Remote DoS System Crash
 
 Donde haciendo uso de los '**Message Box**', a través de un bucle infinito con subbucles que realizan 3.000 peticiones en hilo, se consigue llenar la memoria RAM del dispositivo, causando no sólo una denegación de servicio remota del aplicativo sino también un **Remote System Crash**, donde el dispositivo queda completamente inoperativo forzando un reiniciado del sistema. 
+
+Esta vulnerabilidad afecta no sólo a la última versión de AirDroid sino también a todas las que le preceden.
