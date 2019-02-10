@@ -96,7 +96,7 @@ En caso de que la víctima nos acepte la conexión, estas son las operaciones qu
 
 De manera adicional, también podemos correr los scripts '**airdroid_dos.sh**' y '**airdroid_fast_dos.sh**'. La principal diferencia entre ambos es que el segundo va directamente al ataque, el primero realiza una breve comprobación inicial para ver si el Host cuenta con el servicio activo, etc. (Lado más comercial).
 
-¿Cómo se utiliza el programa?
+TODO
 ======
 
 Actualmente, me encuentro desarrollando las siguientes utilidades:
