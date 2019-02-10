@@ -99,7 +99,7 @@ De manera adicional, también podemos correr los scripts '**airdroid_dos.sh**' y
 ADICIONAL
 ======
 
-En caso de querer ganar acceso desde el navegador web, una vez ejecutado el script 'AirDroidPwner.py' y exportado el listado de ips en el fichero '**ips**', es posible ejecutar el script '**web_browser.py**' para abrir en un navegador todos los servicios activos.
+En caso de querer gestionar el acceso desde el navegador web, una vez ejecutado el script '**AirDroidPwner.py**' y exportado el listado de ips en el fichero '**ips**', es posible ejecutar el script '**web_browser.py**' para abrir en un navegador todos los servicios activos.
 
 TODO
 ======

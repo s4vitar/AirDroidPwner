@@ -1,6 +1,8 @@
 #!/usr/bin/python
 #coding: utf-8
 
+# Autor: Marcelo Vázquez (aka s4vitar)
+
 import webbrowser, signal, os, time
 
 def handler(signum, frame):

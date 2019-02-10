@@ -107,6 +107,15 @@ if __name__ == '__main__':
         print "$ python AttackHost.py " + available_urls[0] + '\n'
         time.sleep(1)
 
+        print "[*] En caso de querer elaborar el ataque Remote DoS Application & System Crash contra los activos, ejecuta los scripts 'airdroid_dos.sh' o 'airdroid_fast_dos.sh'...\n"
+        time.sleep(2)
+
+        print "[*] Ejemplo...\n"
+        time.sleep(1)
+
+        print "$ python airdroid_fast_dos.sh http://ip:8888" + '\n'
+        time.sleep(1)
+
         print "[*] En caso de querer gestionar las sesiones del navegador, ejecuta el script 'web_browser.py'...\n"
         time.sleep(2)
 
