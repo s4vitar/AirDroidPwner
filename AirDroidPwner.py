@@ -11,7 +11,7 @@
 import shodan, requests, time, os, sys, signal, threading
 
 # Usa tu API KEY de Shodan
-SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def handler(signum, frame):
@@ -106,5 +106,8 @@ if __name__ == '__main__':
 
         print "$ python AttackHost.py " + available_urls[0] + '\n'
         time.sleep(1)
+
+        print "[*] En caso de querer gestionar las sesiones del navegador, ejecuta el script 'web_browser.py'...\n"
+        time.sleep(2)
 
         os.system('setterm -cursor on')

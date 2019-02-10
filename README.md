@@ -96,6 +96,11 @@ En caso de que la víctima nos acepte la conexión, estas son las operaciones qu
 
 De manera adicional, también podemos correr los scripts '**airdroid_dos.sh**' y '**airdroid_fast_dos.sh**'. La principal diferencia entre ambos es que el segundo va directamente al ataque, el primero realiza una breve comprobación inicial para ver si el Host cuenta con el servicio activo, etc. (Lado más comercial).
 
+ADICIONAL
+======
+
+En caso de querer ganar acceso desde el navegador web, una vez ejecutado el script 'AirDroidPwner.py' y exportado el listado de ips en el fichero '**ips**', es posible ejecutar el script '**web_browser.py**' para abrir en un navegador todos los servicios activos.
+
 TODO
 ======
 
