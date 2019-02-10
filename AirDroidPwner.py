@@ -11,7 +11,7 @@
 import shodan, requests, time, os, sys, signal, urllib, threading
 
 # Usa tu API KEY de Shodan
-SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def handler(signum, frame):
@@ -20,9 +20,7 @@ def handler(signum, frame):
         os.system('setterm -cursor on')
         sys.exit(0)
 
-def checkurl(ip):
-
-	available_urls = []
+def checkurl(ip, available_urls):
 
 	url = "http://" + ip + ":8888/"
 
@@ -34,8 +32,6 @@ def checkurl(ip):
 			available_urls.append(url)
         except:
                 pass
-
-        return available_urls
 
 def get_IPS(ips_array):
 
@@ -68,13 +64,13 @@ if __name__ == '__main__':
         print "[*] Número total de IPs obtenidas:", len(ips_array)
         time.sleep(2)
 
-        print "\n[*] Comprobando la disponibilidad web...\n"
+        print "\n[*] Comprobando objetivos...\n"
         time.sleep(2)
 
         threads = []
 
 	for host in ips_array:
-		t = threading.Thread(target=checkurl, args=(host,))
+		t = threading.Thread(target=checkurl, args=(host, available_urls,))
 		threads.append(t)
 
 	for x in threads:
@@ -85,5 +81,7 @@ if __name__ == '__main__':
 
         print "[*] Las direcciones IPs han sido almacenadas en un nuevo vector...\n"
         time.sleep(2)
+
+	print available_urls
 
         os.system('setterm -cursor on')
