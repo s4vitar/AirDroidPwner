@@ -38,5 +38,5 @@ if [ "$(echo $#)" == "1" ]; then
 		done && wait
 	done
 else
-	echo -e "\n${blueColour}Usage: ${endColour}${redColour}./airdroid_dos.sh ${endColour}${yellowColour}<${endColour}${grayColour}ip_address${endColour}${yellowColour}>${endColour}${yellowColour} <${endColour}${grayColour}port${endColour}${yellowColour}>${endColour}\n"
+	echo -e "\n${blueColour}Usage: ${endColour}${redColour}./airdroid_fast_dos.sh ${endColour}${grayColour}http://ip:8888${endColour}\n"
 fi
