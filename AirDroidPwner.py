@@ -11,7 +11,7 @@
 import shodan, requests, time, os, sys, signal, threading
 
 # Usa tu API KEY de Shodan
-SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def handler(signum, frame):
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 	for x in threads:
 		x.join()
 
-        print "[*] Las direcciones IPs han sido almacenadas en un nuevo vector y exportadas al fichero 'ips'...\n"
+        print "[*] Las URLs activas han sido exportadas al fichero 'ips'...\n"
         time.sleep(2)
 
 	f = open('ips', "w")
@@ -89,12 +89,22 @@ if __name__ == '__main__':
 
 	f.close()
 
-	print "[*] Ejecuta el script 'AttackHost.py' seguido de la URL para comenzar con el ataque\n"
+	print "[*] Ejecuta el script 'AttackHosts.py' para iniciar el ataque contra los activos recopilados\n"
 	time.sleep(2)
 
 	print "[*] Ejemplo...\n"
 	time.sleep(1)
 
-	print "python AttackHost.py " + available_urls[0] + '\n'
+	print "$ python AttackHosts.py " + '\n'
+	time.sleep(1)
+
+        print "[*] También puedes hacer un ataque dirigido a un único objetivo a través del fichero 'AttackHost.py' seguido de la URL\n"
+        time.sleep(2)
+
+        print "[*] Ejemplo...\n"
+        time.sleep(1)
+
+        print "$ python AttackHost.py " + available_urls[0] + '\n'
+        time.sleep(1)
 
         os.system('setterm -cursor on')
