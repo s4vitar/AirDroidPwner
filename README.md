@@ -95,3 +95,14 @@ En caso de que la víctima nos acepte la conexión, estas son las operaciones qu
 * Extracción de Números de Teléfono en la Agenda de Contactos
 
 De manera adicional, también podemos correr los scripts '**airdroid_dos.sh**' y '**airdroid_fast_dos.sh**'. La principal diferencia entre ambos es que el segundo va directamente al ataque, el primero realiza una breve comprobación inicial para ver si el Host cuenta con el servicio activo, etc. (Lado más comercial).
+
+¿Cómo se utiliza el programa?
+======
+
+Actualmente, me encuentro desarrollando las siguientes utilidades:
+
+* Dumpear los SMS's del dispositivo móvil
+* Descargar todas las fotos del dispositivo móvil (WhatsApp, Telegram, etc.)
+* Visualizar el registro de llamadas
+* Extracción de Correos Electrónicos
+* Capturar la Cookie de sesión para posteriormente hacer un hijacking y vía web gestionar el dispositivo
