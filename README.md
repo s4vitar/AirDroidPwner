@@ -71,7 +71,7 @@ Una vez encontradas, se lleva a cabo un proceso de validación para comprobar qu
 Tras obtener el nuevo array con los elementos correspondientes a los Hosts activos, estos son exportados un fichero con nombre '**ips**'. Actualmente existen los siguientes modos de operación:
 
 * El atacante ejecuta el script '**AttackHosts.py**' una vez generado el archivo '**ips**', enviando peticiones pendientes de aceptación por parte de cada una de las víctimas recopiladas.
-* El atacante ejecuta el script '**AttackHost.py**' con el objetivo de enviar una peticion a la URL pasada como argumento ('**Ej.: python AttackHost.py http://192.168.1.105:8888/**')
+* El atacante ejecuta el script '**AttackHost.py**' con el objetivo de enviar una peticion a la URL pasada como argumento ('**Ej.: python AttackHost.py http://192.168.1.105:8888**')
 
 Tras la aceptación de la conexión (la petición se lanza contra los Hosts y es cuestión de que alguno de ellos la acepte [Por desgracia, verás que muchos lo hacen...]), se almacena el identificador de la sesión en el parámetro **7bb**, desde el cual posteriormente se gestionan las consultas:
 
@@ -81,12 +81,11 @@ def get_identifier(r_json):
         return identifier_session
 ```
 
-En caso de que el cliente no acepte la conexión, a través de un cómodo menú interactivo podremos llevar a cabo las siguientes operaciones:
+En caso de que el cliente no acepte la conexión, estos serán almacenados en un vector de conexiones rechazadas para posteriormente iniciar un ataque de tipo (El atacante puede decidir <y/n>):
 
-* Remote DoS Application Crash
-* Remote DoS System Crash
+* Remote DoS Application & System Crash
 
-Donde haciendo uso de los '**Message Box**', a través de un bucle infinito con subbucles que realizan 3.000 peticiones en hilo, se consigue llenar la memoria RAM del dispositivo, causando no sólo una denegación de servicio remota del aplicativo sino también un **Remote System Crash**, donde el dispositivo queda completamente inoperativo forzando un reiniciado del sistema. 
+Donde haciendo uso de los '**Message Box**', a través de un bucle principal de iteraciones modificables (por defecto 10) junto con subbucles que realizan 3.000 peticiones en hilo sobre las víctimas, se consigue llenar la memoria RAM del dispositivo, causando no sólo una denegación de servicio remota del aplicativo sino también un **Remote System Crash**, donde el dispositivo queda completamente inoperativo forzando un reiniciado del sistema. 
 
 Esta vulnerabilidad afecta no sólo a la última versión de AirDroid sino también a todas las que le preceden.
 
@@ -94,3 +93,5 @@ En caso de que la víctima nos acepte la conexión, estas son las operaciones qu
 
 * Extracción de Información del Dispositivo
 * Extracción de Números de Teléfono en la Agenda de Contactos
+
+De manera adicional, también podemos correr los scripts '**airdroid_dos.sh**' y '**airdroid_fast_dos.sh**'. La principal diferencia entre ambos es que el segundo va directamente al ataque, el primero realiza una breve comprobación inicial para ver si el Host cuenta con el servicio activo, etc. (Lado más comercial).
