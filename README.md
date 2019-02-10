@@ -104,7 +104,7 @@ En caso de querer gestionar el acceso desde el navegador web, una vez ejecutado 
 TODO
 ======
 
-Actualmente, me encuentro desarrollando las siguientes utilidades:
+Tareas:
 
 * Dumpear los SMS's del dispositivo móvil
 * Descargar todas las fotos del dispositivo móvil (WhatsApp, Telegram, etc.)
