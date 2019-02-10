@@ -11,12 +11,12 @@
 import shodan, requests, time, os, sys, signal, threading
 
 # Usa tu API KEY de Shodan
-SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def handler(signum, frame):
 
-        print '\nExiting...\n'
+        print '\nSaliendo...\n'
         os.system('setterm -cursor on')
         sys.exit(0)
 
