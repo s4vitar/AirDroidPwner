@@ -6,6 +6,12 @@
      style="float: left; margin-right: 10px;" />
 </p>
 
+Video PoC Exploit: https://www.youtube.com/watch?v=0QDM224_6DM
+
+CVE: https://nvd.nist.gov/vuln/detail/CVE-2019-9599
+
+Exploit-db: https://www.exploit-db.com/exploits/46337
+
 ¿Qué es AirDroid?
 ======
 
