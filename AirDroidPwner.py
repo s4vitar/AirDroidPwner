@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # coding: utf-8
 
+# CVE-2019-9599 (https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9599)
+
 # --------------------------------------------------
 # \                                                 \
 # \        AirDroid Remote Steal Information        \
@@ -11,7 +13,7 @@
 import shodan, requests, time, os, sys, signal, threading
 
 # Usa tu API KEY de Shodan
-SHODAN_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+SHODAN_API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 def handler(signum, frame):
