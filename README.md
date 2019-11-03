@@ -1,4 +1,4 @@
-# AirDroidPwner (CVE-2019-9599)
+# AirDroidPwner (CVE-2019-9599) [Este exploit ya no es funcional]
 
 <p align="center">
 <img src="images/Logo.png"
